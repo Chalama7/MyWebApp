@@ -1,20 +1,25 @@
 pipeline {
     agent any
-
+    
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
-                bat '<your_build_command>'
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                bat '<your_test_command>'
+                bat 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
-                bat '<your_deploy_command>'
+                bat 'copy target\\*.war C:\Program Files\apache-tomcat-9.0.85\webapps'
             }
         }
     }

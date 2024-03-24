@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               bat 'copy target\\*.war C:\\Program Files\\apache-tomcat-9.0.85\\webapps'
+               bat 'copy target\\*.war C:\Program Files\apache-tomcat-9.0.85\webapps\mvnwebapp\META-INF\maven\jenkins.mvn.demo\mvnwebapp
 
             }
         }
